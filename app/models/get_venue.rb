@@ -1,7 +1,7 @@
 class GetVenue
 
   def token_data
-    "&client_id=#{APP_CONFIG['fs_client_id']}&client_secret=#{APP_CONFIG['fs_client_secret']}&v=#{Time.now.strftime('%Y%m%d')}"
+    "&client_id=#{ENV['fs_client_id']}&client_secret=#{ENV['fs_client_secret']}&v=#{Time.now.strftime('%Y%m%d')}"
   end
 
   def boulder_lat_lon
