@@ -30,7 +30,7 @@ class UrlFormatter
 
   def translate_terms
     if details[:terms]
-      '&' + details[:terms]
+      details[:terms]
     end
   end
 
