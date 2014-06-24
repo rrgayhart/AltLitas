@@ -13,7 +13,7 @@ class GetVenue
 
   def sanitize_query_array(response)
     suggestions = response['response']['groups'].first['items'] rescue {}
-    suggestions.collect do |suggestion|
+    sanitized = suggestions.collect do |suggestion|
       venue = suggestion['venue']
       why = suggestion['reasons']['items'][0]["summary"] rescue nil
       sayWhat = suggestion['tips'][0]['text'] rescue 'nothing'
@@ -27,6 +27,7 @@ class GetVenue
         who: soundsLike
       }
     end
+    sanitized.select { |v| v[:why] }
   end
 
   def sanitize_venue_array(response)
