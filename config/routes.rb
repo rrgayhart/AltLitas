@@ -4,8 +4,9 @@ AltLitas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'welcome#index'
-   get '/booze' => 'welcome#booze'
-   get '/require/:term' => 'welcome#i_require'
+   get '/food/(:details)' => 'welcome#food'
+   get '/booze/(:details)' => 'welcome#booze'
+   get '/require/(:details)' => 'welcome#i_require'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

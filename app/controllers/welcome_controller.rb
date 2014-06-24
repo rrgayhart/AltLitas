@@ -1,18 +1,23 @@
 class WelcomeController < ApplicationController
 
   def index
-    venue = GetVenue.new
-    render json: venue.random_venue
+    response = GetVenue.new("", 'food')
+    render json: response.result
+  end
+
+  def food
+    response = GetVenue.new(params['details'] || "", 'food')
+    render json: response.result
   end
 
   def booze
-    venue = GetVenue.new
-    render json: venue.random_booze
+    response = GetVenue.new(params['details'] || "", 'booze')
+    render json: response.result
   end
 
   def i_require
-    venue = GetVenue.new
-    render json: venue.i_require_random(params['term'])
+    response = GetVenue.new(params['details'] || "", 'require')
+    render json: response.result
   end
 
 end
