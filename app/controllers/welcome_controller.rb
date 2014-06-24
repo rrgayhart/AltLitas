@@ -10,4 +10,9 @@ class WelcomeController < ApplicationController
     render json: venue.random_booze
   end
 
+  def i_require
+    venue = GetVenue.new
+    render json: venue.i_require_random(params['term'])
+  end
+
 end
